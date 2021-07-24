@@ -41,6 +41,15 @@ export type Theme = {
 		placeholder: string;
 		backdrop: string;
 		notification: string;
+		gradient: {
+			init: string;
+			end: string;
+		};
+		dark: string;
+		darkGray: string;
+		lightGray: string;
+		light: string;
+		fontColor: string;
 	};
 	fonts: Fonts;
 	animation: {

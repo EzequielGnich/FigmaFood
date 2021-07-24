@@ -14,6 +14,8 @@ target 'FigmaFood' do
 
   pod 'RNGestureHandler', :path => '../node_modules/react-native-gesture-handler'
 
+  pod 'BVLinearGradient', :path => '../node_modules/react-native-linear-gradient'
+
   target 'FigmaFoodTests' do
     inherit! :complete
     # Pods for testing

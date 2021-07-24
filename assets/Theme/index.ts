@@ -11,13 +11,14 @@ export const theme = {
 		primary: '#FE554A',
 		accent: '#0B735F',
 		gradient: {
-			init: '#F9881F',
-			end: '#FF774C',
+			end: '#F9881F',
+			init: '#FF774C',
 		},
 		dark: '#2A3037',
 		darkGray: '#AAACAE',
 		lightGray: '#DFE2E5',
 		light: '#FCFCFC',
-		background: '#F7F7FB',
+		background: '#F8FBFF',
+		fontColor: '#1C1C1C',
 	},
 };

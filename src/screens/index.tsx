@@ -8,16 +8,21 @@ import { createStackNavigator } from '@react-navigation/stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 import Home from './Home';
+
+import AccountInfo from './Account/Info';
+import AccountCreate from './Account/Create';
+
 import Menu from '../components/Menu';
 import { withTheme } from 'react-native-paper';
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
 
-const HomeScreens = () => {
+const AccountScreens = () => {
 	return (
 		<Stack.Navigator headerMode="none">
-			<Stack.Screen name="Home" component={Home} />
+			<Stack.Screen name="Info" component={AccountInfo} />
+			<Stack.Screen name="AccountCreate" component={AccountCreate} />
 		</Stack.Navigator>
 	);
 };
@@ -34,8 +39,11 @@ const HomeScreens = () => {
 
 const App = () => {
 	return (
-		<Tab.Navigator tabBar={props => <Menu {...props} />}>
-			<Tab.Screen name="Home" component={HomeScreens} />
+		<Tab.Navigator
+			tabBar={props => {
+				/*<Menu {...props} />*/
+			}}>
+			<Tab.Screen name="Home" component={AccountScreens} />
 		</Tab.Navigator>
 	);
 };
