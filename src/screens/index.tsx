@@ -1,5 +1,5 @@
 import React, { useRef } from 'react';
-import { Text, View } from 'react-native';
+import { StatusBar, Text, View } from 'react-native';
 import {
 	NavigationContainer,
 	NavigationContainerRef,
@@ -9,6 +9,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 import Home from './Home';
 import Menu from '../components/Menu';
+import { withTheme } from 'react-native-paper';
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -39,12 +40,14 @@ const App = () => {
 	);
 };
 
-const Root = () => {
+const Root = props => {
 	const routeNameRef = useRef<string>();
 	const navigationRef = useRef<NavigationContainerRef>();
+	const { colors } = props.theme;
 
 	return (
 		<View style={{ flex: 1 }}>
+			<StatusBar barStyle="dark-content" backgroundColor={colors.background} />
 			<NavigationContainer
 				fallback={<Text>Loading...</Text>}
 				ref={navigationRef}
@@ -66,4 +69,4 @@ const Root = () => {
 	);
 };
 
-export default Root;
+export default withTheme(Root);

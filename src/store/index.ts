@@ -7,6 +7,7 @@ import AsyncStorage from '@react-native-community/async-storage';
 import autoMergeLevel2 from 'redux-persist/lib/stateReconciler/autoMergeLevel2';
 
 import { parse, stringify } from 'flatted/esm';
+import persistStore from 'redux-persist/es/persistStore';
 
 const transformCircular = createTransform(
 	(inboundState, key) => stringify(inboundState),
@@ -22,4 +23,7 @@ const persistConfig = {
 
 const persistedReducer = persistReducer(persistConfig, reducers);
 
-export const store = createStore(persistedReducer, applyMiddleware(thunk));
+let store = createStore(persistedReducer, applyMiddleware(thunk));
+let persistor = persistStore(store, null);
+
+export { store, persistor };
