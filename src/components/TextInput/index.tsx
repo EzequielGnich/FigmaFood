@@ -1,33 +1,3 @@
-// import React from 'react';
-// import { View, Text, TextInput } from 'react-native';
-// import { withTheme } from 'react-native-paper';
-// import { IThemeStyle } from '../../Types/IStyle';
-
-// import styles from './styles';
-
-// interface IProps extends IThemeStyle {
-// 	label: string;
-// 	placeholder: string;
-// }
-
-// const InputText: React.FC<IProps> = ({ placeholder, label, ...props }) => {
-// 	const { colors } = props.theme;
-
-// 	return (
-// 		<View style={styles.inputContainer}>
-// 			<Text style={{ paddingHorizontal: 20, marginVertical: 10 }}>{label}</Text>
-// 			<TextInput
-// 				placeholder={placeholder}
-// 				placeholderTextColor={colors.darkGray}
-// 				style={[styles.textInputStyle, { borderColor: colors.lightGray }]}
-// 				{...props}
-// 			/>
-// 		</View>
-// 	);
-// };
-
-// export default withTheme(InputText);
-
 import React, { ReactNode } from 'react';
 import {
 	Text,

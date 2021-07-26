@@ -9,7 +9,7 @@ interface Styles {
 }
 
 const styles = StyleSheet.create<Styles>({
-	inputContainer: { paddingHorizontal: 20 },
+	inputContainer: { paddingHorizontal: 10 },
 	inputStyle: {
 		paddingHorizontal: 20,
 		borderRadius: 15,

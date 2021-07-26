@@ -4,16 +4,20 @@ import {
 	NavigationContainer,
 	NavigationContainerRef,
 } from '@react-navigation/native';
+
 import { createStackNavigator } from '@react-navigation/stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { withTheme } from 'react-native-paper';
 
 import Home from './Home';
 
 import AccountInfo from './Account/Info';
 import AccountCreate from './Account/Create';
+import AccountLogin from './Account/Login';
+import AccountRecovery from './Account/Recovery';
+import ResetPassword from './Account/Recovery/ResetPassword';
 
 import Menu from '../components/Menu';
-import { withTheme } from 'react-native-paper';
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -23,6 +27,9 @@ const AccountScreens = () => {
 		<Stack.Navigator headerMode="none">
 			<Stack.Screen name="Info" component={AccountInfo} />
 			<Stack.Screen name="AccountCreate" component={AccountCreate} />
+			<Stack.Screen name="AccountLogin" component={AccountLogin} />
+			<Stack.Screen name="AccountRecovery" component={AccountRecovery} />
+			<Stack.Screen name="ResetPassword" component={ResetPassword} />
 		</Stack.Navigator>
 	);
 };

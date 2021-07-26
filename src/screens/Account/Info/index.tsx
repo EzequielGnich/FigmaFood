@@ -1,3 +1,4 @@
+import { useNavigation } from '@react-navigation/core';
 import React, { useEffect, useState } from 'react';
 import { Dimensions, Image, Text, TouchableOpacity, View } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
@@ -13,13 +14,10 @@ const food = require('../../../../assets/images/food.png');
 
 const logo = require('../../../../assets/logo/Logo.png');
 
-interface IProps extends IThemeStyle {
-	navigation: NavigationScreenProp<any, any>;
-}
-
-const Register: React.FC<IProps> = props => {
+const Register: React.FC<IThemeStyle> = props => {
 	const { colors } = props.theme;
 
+	const navigation = useNavigation();
 	const [data, setData] = useState([{ imgUrl: '' }]);
 
 	useEffect(() => {
@@ -67,8 +65,7 @@ const Register: React.FC<IProps> = props => {
 					alignItems: 'center',
 					justifyContent: 'space-between',
 				}}>
-				<TouchableOpacity
-					onPress={() => props.navigation.navigate('AccountCreate')}>
+				<TouchableOpacity onPress={() => navigation.navigate('AccountCreate')}>
 					<LinearGradient
 						angle={-45}
 						useAngle
@@ -92,6 +89,7 @@ const Register: React.FC<IProps> = props => {
 					</LinearGradient>
 				</TouchableOpacity>
 				<TouchableOpacity
+					onPress={() => navigation.navigate('AccountLogin')}
 					style={{ alignItems: 'center', justifyContent: 'center' }}>
 					<Text style={{ color: colors.primary }}>login</Text>
 				</TouchableOpacity>

@@ -18,15 +18,15 @@ const coloredGoogle = require('../../../../assets/icons/google.png');
 
 interface IProps extends IThemeStyle {}
 
-const Create: React.FC<IProps> = props => {
+const Login: React.FC<IProps> = props => {
 	const navigation = useNavigation();
 
 	const { colors, fonts } = props.theme;
 
 	return (
-		<ScrollView
-			showsVerticalScrollIndicator={false}
+		<View
 			style={{
+				flex: 1,
 				backgroundColor: colors.background,
 				paddingHorizontal: 10,
 			}}>
@@ -54,17 +54,14 @@ const Create: React.FC<IProps> = props => {
 						fontSize: 24,
 						marginBottom: 20,
 					}}>
-					Create an account
+					Login to your account
 				</Text>
 				<Text style={{ fontFamily: fonts.regular.fontFamily }}>
-					Welcome friend, enter your details so lets get started in ordering
-					food.
+					Good to see you again, enter your details below to continue ordering.
 				</Text>
 			</View>
 			<View style={{ marginBottom: 60 }}>
-				<TextInput placeholder="Enter email" label="Email Address" />
-				<TextInput placeholder="Enter password" label="Password" />
-				<TextInput placeholder="Confirm Password" label="Confirm Password" />
+				<TextInput placeholder="Enter email address" label="Email Address" />
 			</View>
 			<View style={{ alignItems: 'center', marginBottom: 40 }}>
 				<TouchableOpacity
@@ -112,7 +109,9 @@ const Create: React.FC<IProps> = props => {
 						</Text>
 					</LinearGradient>
 				</TouchableOpacity>
-				<TouchableOpacity onPress={() => navigation.navigate('AccountLogin')}>
+
+				{/* Go to recovery password screen */}
+				<TouchableOpacity onPress={() => navigation.navigate('ResetPassword')}>
 					<Text
 						style={{
 							color: colors.primary,
@@ -123,8 +122,8 @@ const Create: React.FC<IProps> = props => {
 					</Text>
 				</TouchableOpacity>
 			</View>
-		</ScrollView>
+		</View>
 	);
 };
 
-export default withTheme(Create);
+export default withTheme(Login);
