@@ -50,6 +50,7 @@ export type Theme = {
 		lightGray: string;
 		light: string;
 		fontColor: string;
+		border: string;
 	};
 	fonts: Fonts;
 	animation: {

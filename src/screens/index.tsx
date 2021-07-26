@@ -1,5 +1,5 @@
 import React, { useRef } from 'react';
-import { StatusBar, Text, View } from 'react-native';
+import { Dimensions, StatusBar, Text, View } from 'react-native';
 import {
 	NavigationContainer,
 	NavigationContainerRef,
@@ -54,7 +54,17 @@ const HomeScreens = () => {
 
 const App = () => {
 	return (
-		<Tab.Navigator tabBar={props => <Menu {...props} />}>
+		<Tab.Navigator
+			tabBar={props => (
+				<View
+					style={{
+						position: 'absolute',
+						bottom: 0,
+						width: Dimensions.get('window').width,
+					}}>
+					<Menu {...props} />
+				</View>
+			)}>
 			<Tab.Screen name="Home" component={HomeScreens} />
 			<Tab.Screen name="Account" component={AccountScreens} />
 		</Tab.Navigator>
