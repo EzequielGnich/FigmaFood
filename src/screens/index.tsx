@@ -34,6 +34,14 @@ const AccountScreens = () => {
 	);
 };
 
+const HomeScreens = () => {
+	return (
+		<Stack.Navigator headerMode="none">
+			<Stack.Screen name="Home" component={Home} />
+		</Stack.Navigator>
+	);
+};
+
 // const AlbumsScreens = () => {
 //   return (
 //     <Stack.Navigator headerMode="none">
@@ -46,11 +54,9 @@ const AccountScreens = () => {
 
 const App = () => {
 	return (
-		<Tab.Navigator
-			tabBar={props => {
-				/*<Menu {...props} />*/
-			}}>
-			<Tab.Screen name="Home" component={AccountScreens} />
+		<Tab.Navigator tabBar={props => <Menu {...props} />}>
+			<Tab.Screen name="Home" component={HomeScreens} />
+			<Tab.Screen name="Account" component={AccountScreens} />
 		</Tab.Navigator>
 	);
 };
