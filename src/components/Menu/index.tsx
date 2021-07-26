@@ -1,10 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import _ from 'lodash';
-import { View, TouchableOpacity, Platform, Keyboard, Text } from 'react-native';
+import { View, Platform, Keyboard } from 'react-native';
 
 import { withTheme } from 'react-native-paper';
-import IconMC from 'react-native-vector-icons/MaterialCommunityIcons';
+
+import styles from './styles';
+
+import Icon from './Icon';
+import LinearGradient from 'react-native-linear-gradient';
 
 const Menu = props => {
 	const {
@@ -55,57 +59,46 @@ const Menu = props => {
 	const { colors } = props.theme;
 
 	return (
-		<View
-			style={{
-				flexDirection: 'row',
-				justifyContent: 'space-around',
-				alignItems: 'center',
-				height: 60,
-				backgroundColor: colors.primary,
-			}}>
-			{[
-				{
-					icon: 'post',
-					text: 'Postagens',
-					onPress: () => handleClick('Posts'),
-				},
-				{
-					icon: 'image-album',
-					text: 'Álbuns',
-					onPress: () => handleClick('Albums'),
-				},
-				{
-					icon: 'clipboard-text-outline',
-					text: 'À fazer',
-					onPress: () => handleClick('Todos'),
-				},
-			].map((c, i) => (
-				<TouchableOpacity
-					key={i.toString()}
-					style={{
-						flex: 1,
-						alignItems: 'center',
-						justifyContent: 'center',
-					}}
-					onPress={c.onPress}>
-					<View
-						style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-						<IconMC
-							name={c.icon}
-							size={24}
-							color={index === i ? '#fff' : '#ff5983'}
-						/>
-						<Text
-							style={{
-								fontFamily: 'sans-serif',
-								color: index === i ? '#fff' : '#ff5983',
-								fontSize: 12,
-							}}>
-							{c.text}
-						</Text>
-					</View>
-				</TouchableOpacity>
-			))}
+		<View style={styles.container}>
+			<Icon
+				iconName="home-outline"
+				size={28}
+				color="#FE554A"
+				handleClick={() => handleClick('Posts')}
+			/>
+			<Icon
+				iconName="heart-outline"
+				size={28}
+				color="#FE554A"
+				handleClick={() => handleClick('Posts')}
+			/>
+			<View style={styles.searchContainer}>
+				<View style={styles.searchWrapper} />
+				<LinearGradient
+					angle={-45}
+					useAngle
+					style={styles.linearGradient}
+					colors={[colors.gradient.init, colors.gradient.end]}>
+					<Icon
+						iconName="magnify"
+						size={36}
+						color="#FFF"
+						handleClick={() => handleClick('Posts')}
+					/>
+				</LinearGradient>
+			</View>
+			<Icon
+				iconName="bell-outline"
+				size={28}
+				color="#FE554A"
+				handleClick={() => handleClick('Posts')}
+			/>
+			<Icon
+				iconName="cart-outline"
+				size={28}
+				color="#FE554A"
+				handleClick={() => handleClick('Posts')}
+			/>
 		</View>
 	);
 };
