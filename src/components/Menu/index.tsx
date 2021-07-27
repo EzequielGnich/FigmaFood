@@ -1,7 +1,6 @@
-import React, { useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
+import React, { useEffect } from 'react';
 import _ from 'lodash';
-import { View, Platform, Keyboard } from 'react-native';
+import { View } from 'react-native';
 
 import { withTheme } from 'react-native-paper';
 
@@ -10,32 +9,19 @@ import styles from './styles';
 import Icon from './Icon';
 import LinearGradient from 'react-native-linear-gradient';
 
+import Animated, {
+	useAnimatedStyle,
+	useSharedValue,
+	withTiming,
+} from 'react-native-reanimated';
+
 const Menu = props => {
 	const {
 		navigation: { navigate },
 		state,
 	}: any = props;
 
-	const { index } = state;
-
-	const [isKeyboardOpen, setIsKeyboardOpen] = useState(false);
-
-	const { showTabBar } = useSelector<any, any>(c => c.menu);
-
-	useEffect(() => {
-		if (Platform.OS === 'android') {
-			const listenerOpen = Keyboard.addListener('keyboardDidShow', e =>
-				setIsKeyboardOpen(true),
-			);
-			const listenerClose = Keyboard.addListener('keyboardDidHide', e =>
-				setIsKeyboardOpen(false),
-			);
-			return () => {
-				listenerOpen.remove();
-				listenerClose.remove();
-			};
-		}
-	}, []);
+	const { colors } = props.theme;
 
 	const handleClick = (name: string) => {
 		switch (name) {
@@ -54,12 +40,32 @@ const Menu = props => {
 		}
 	};
 
-	if (isKeyboardOpen || !showTabBar) return null;
+	const offsetTab = useSharedValue(100);
 
-	const { colors } = props.theme;
+	useEffect(() => {
+		offsetTab.value = withTiming(0, { duration: 500 });
+	}, []);
+
+	const tabStyle = useAnimatedStyle(() => {
+		return {
+			transform: [{ translateY: offsetTab.value }],
+		};
+	});
+
+	const offsetSearch = useSharedValue(10);
+
+	useEffect(() => {
+		offsetSearch.value = withTiming(0, { duration: 1000 });
+	}, []);
+
+	const searchStyle = useAnimatedStyle(() => {
+		return {
+			transform: [{ rotate: `${offsetSearch.value}rad` }],
+		};
+	});
 
 	return (
-		<View style={styles.container}>
+		<Animated.View style={[styles.container, tabStyle]}>
 			<Icon
 				iconName="home-outline"
 				size={28}
@@ -79,12 +85,14 @@ const Menu = props => {
 					useAngle
 					style={styles.linearGradient}
 					colors={[colors.gradient.init, colors.gradient.end]}>
-					<Icon
-						iconName="magnify"
-						size={36}
-						color="#FFF"
-						handleClick={() => handleClick('Posts')}
-					/>
+					<Animated.View style={[searchStyle]}>
+						<Icon
+							iconName="magnify"
+							size={36}
+							color="#FFF"
+							handleClick={() => handleClick('Posts')}
+						/>
+					</Animated.View>
 				</LinearGradient>
 			</View>
 			<Icon
@@ -99,7 +107,7 @@ const Menu = props => {
 				color="#FE554A"
 				handleClick={() => handleClick('Posts')}
 			/>
-		</View>
+		</Animated.View>
 	);
 };
 
