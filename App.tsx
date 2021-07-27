@@ -15,14 +15,7 @@ const renderScreen = () => <Screens />;
 export default function App() {
 	return (
 		<Provider store={store}>
-			<PersistGate
-				loading={
-					<View
-						style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-						<Text>Loading..</Text>
-					</View>
-				}
-				persistor={persistor}>
+			<PersistGate persistor={persistor}>
 				<PaperProvider theme={theme}>
 					<SafeAreaView style={styles.container}>{renderScreen()}</SafeAreaView>
 				</PaperProvider>
