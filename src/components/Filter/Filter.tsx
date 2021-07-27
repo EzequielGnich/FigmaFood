@@ -1,9 +1,13 @@
 import React from 'react';
-import { Image, ImageSourcePropType, Text, View } from 'react-native';
+import {
+	Image,
+	ImageSourcePropType,
+	Text,
+	TouchableOpacity,
+	View,
+} from 'react-native';
 import { withTheme } from 'react-native-paper';
 import { IThemeStyle } from '../../Types/IStyle';
-
-const hamburger = require('../../../assets/images/hamburger.png');
 
 import styles from './styles';
 
@@ -24,7 +28,8 @@ const Filter: React.FC<IProps> = props => {
 
 	return (
 		<View style={styles.container}>
-			<View
+			<TouchableOpacity
+				onPress={() => {}}
 				style={[
 					styles.wrapper,
 					{ borderColor: active ? '#3EC032' : colors.border },
@@ -39,7 +44,7 @@ const Filter: React.FC<IProps> = props => {
 						{categoryName}
 					</Text>
 				</View>
-			</View>
+			</TouchableOpacity>
 		</View>
 	);
 };
