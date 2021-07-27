@@ -7,7 +7,7 @@ const styles = StyleSheet.create({
 	},
 	scrollViewStyle: {
 		flex: 1,
-		marginTop: 100,
+		marginTop: 70,
 	},
 	imageContainer: {
 		width: 260,

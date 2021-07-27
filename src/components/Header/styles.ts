@@ -2,7 +2,8 @@ import { Dimensions, StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
 	container: {
-		padding: 20,
+		paddingTop: 20,
+		paddingHorizontal: 20,
 		flexDirection: 'row',
 		width: Dimensions.get('window').width,
 		position: 'absolute',
