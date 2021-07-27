@@ -4,6 +4,9 @@ const styles = StyleSheet.create({
 	container: {
 		flexDirection: 'column',
 		alignItems: 'center',
+	},
+	scrollViewStyle: {
+		flex: 1,
 		marginTop: 100,
 	},
 	imageContainer: {

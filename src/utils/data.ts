@@ -117,3 +117,13 @@ export const dataCard = [
 		imageLink: burguer,
 	},
 ];
+
+const food1 = require('../../assets/images/food1.png');
+const food2 = require('../../assets/images/food2.png');
+const food3 = require('../../assets/images/food3.png');
+
+export const toppingsData = [
+	{ id: 1, imageUrl: food1, title: 'Regular Bun' },
+	{ id: 2, imageUrl: food2, title: 'Cheese' },
+	{ id: 3, imageUrl: food3, title: 'Meat sau' },
+];
