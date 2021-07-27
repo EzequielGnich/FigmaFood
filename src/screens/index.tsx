@@ -17,6 +17,8 @@ import AccountLogin from './Account/Login';
 import AccountRecovery from './Account/Recovery';
 import ResetPassword from './Account/Recovery/ResetPassword';
 
+import ProductDetails from './Product/Details';
+
 import Menu from '../components/Menu';
 
 const Stack = createStackNavigator();
@@ -42,15 +44,13 @@ const HomeScreens = () => {
 	);
 };
 
-// const AlbumsScreens = () => {
-//   return (
-//     <Stack.Navigator headerMode="none">
-//       <Stack.Screen name="Albums" component={Albums} />
-//       <Stack.Screen name="AlbumsDetail" component={AlbumsDetail} />
-//       <Stack.Screen name="Photos" component={Photos} />
-//     </Stack.Navigator>
-//   );
-// };
+const ProductScreens = () => {
+	return (
+		<Stack.Navigator headerMode="none">
+			<Stack.Screen name="ProductDetails" component={ProductDetails} />
+		</Stack.Navigator>
+	);
+};
 
 const App = () => {
 	return (
@@ -67,6 +67,7 @@ const App = () => {
 			)}>
 			<Tab.Screen name="Home" component={HomeScreens} />
 			<Tab.Screen name="Account" component={AccountScreens} />
+			<Tab.Screen name="Product" component={ProductScreens} />
 		</Tab.Navigator>
 	);
 };

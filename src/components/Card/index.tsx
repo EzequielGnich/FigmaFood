@@ -1,3 +1,4 @@
+import { useNavigation } from '@react-navigation/core';
 import React from 'react';
 import {
 	Image,
@@ -25,8 +26,13 @@ interface IProps {
 const Card: React.FC<IProps> = ({
 	item: { imageLink, description, title, stars, like },
 }) => {
+	const navigation = useNavigation();
 	return (
-		<TouchableOpacity style={styles.container}>
+		<TouchableOpacity
+			style={styles.container}
+			onPress={() =>
+				navigation.navigate('Product', { screen: 'ProductDetails' })
+			}>
 			<View style={styles.imageContainer}>
 				<Image source={imageLink} style={styles.image} />
 			</View>

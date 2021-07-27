@@ -64,7 +64,7 @@ const Menu = props => {
 				iconName="home-outline"
 				size={28}
 				color="#FE554A"
-				handleClick={() => handleClick('Posts')}
+				handleClick={() => handleClick('Home')}
 			/>
 			<Icon
 				iconName="heart-outline"
