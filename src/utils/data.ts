@@ -127,3 +127,27 @@ export const toppingsData = [
 	{ id: 2, imageUrl: food2, title: 'Cheese' },
 	{ id: 3, imageUrl: food3, title: 'Meat sau' },
 ];
+
+export const products = [
+	{
+		id: 1,
+		imageUrl: burguer,
+		name: 'The Macdonalds',
+		category: 'Classic cheesburger',
+		price: '$23.99',
+	},
+	{
+		id: 2,
+		imageUrl: burguer,
+		name: 'The Macdonalds',
+		category: 'Classic cheesburger',
+		price: '$23.99',
+	},
+	{
+		id: 3,
+		imageUrl: burguer,
+		name: 'The Macdonalds',
+		category: 'Classic cheesburger',
+		price: '$23.99',
+	},
+];

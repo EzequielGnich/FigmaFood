@@ -6,7 +6,6 @@ import {
 	ScrollView,
 	View,
 	Dimensions,
-	FlatList,
 } from 'react-native';
 import { withTheme } from 'react-native-paper';
 import Header from '../../../components/Header';
@@ -16,12 +15,15 @@ import LinearGradient from 'react-native-linear-gradient';
 
 import styles from './styles';
 import Toppings from '../../../components/Toppings';
+import { useNavigation } from '@react-navigation/core';
 
 const burguerLG = require('../../../../assets/images/burguerLG.png');
 
 interface IProps extends IThemeStyle {}
 
 const Product: React.FC<IProps> = props => {
+	const navigation = useNavigation();
+
 	const { colors } = props.theme;
 	return (
 		<View style={{ flex: 1, backgroundColor: colors.background }}>
@@ -72,7 +74,11 @@ const Product: React.FC<IProps> = props => {
 						Cheeseburger is topped
 					</Text>
 					<View>
-						<TouchableOpacity style={{ marginTop: 40 }} onPress={() => {}}>
+						<TouchableOpacity
+							style={{ marginTop: 40 }}
+							onPress={() =>
+								navigation.navigate('Cart', { screen: 'CartDetails' })
+							}>
 							<LinearGradient
 								angle={-45}
 								useAngle

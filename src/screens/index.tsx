@@ -19,6 +19,8 @@ import ResetPassword from './Account/Recovery/ResetPassword';
 
 import ProductDetails from './Product/Details';
 
+import CartDetails from './Cart';
+
 import Menu from '../components/Menu';
 
 const Stack = createStackNavigator();
@@ -52,6 +54,14 @@ const ProductScreens = () => {
 	);
 };
 
+const CartScreens = () => {
+	return (
+		<Stack.Navigator headerMode="none">
+			<Stack.Screen name="CartDetails" component={CartDetails} />
+		</Stack.Navigator>
+	);
+};
+
 const App = () => {
 	return (
 		<Tab.Navigator
@@ -68,6 +78,7 @@ const App = () => {
 			<Tab.Screen name="Home" component={HomeScreens} />
 			<Tab.Screen name="Account" component={AccountScreens} />
 			<Tab.Screen name="Product" component={ProductScreens} />
+			<Tab.Screen name="Cart" component={CartScreens} />
 		</Tab.Navigator>
 	);
 };
