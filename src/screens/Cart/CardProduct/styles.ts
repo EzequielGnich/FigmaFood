@@ -32,14 +32,31 @@ const styles = StyleSheet.create({
 	productName: { lineHeight: 22, fontSize: 14, fontWeight: '700' },
 	productCategory: { lineHeight: 22, fontSize: 11 },
 	productPrice: { lineHeight: 22, fontSize: 16 },
-	containerActions: { flexDirection: 'row', alignItems: 'center' },
-	touchableActions: {
+	container: { flexDirection: 'row', alignItems: 'center' },
+	touchable: {
 		width: 24,
 		height: 24,
 		borderRadius: 15,
 		alignItems: 'center',
 		justifyContent: 'center',
 	},
+	actionsContainer: {
+		position: 'absolute',
+		flexDirection: 'row',
+		top: 30,
+		right: 50,
+		zIndex: -1,
+	},
+	actionButton: {
+		width: 40,
+		height: 40,
+		borderRadius: 15,
+		alignItems: 'center',
+		justifyContent: 'center',
+		backgroundColor: '#DAFAE5',
+		marginRight: 10,
+	},
+	buttonImage: { width: 25, height: 25, resizeMode: 'contain' },
 });
 
 export default styles;

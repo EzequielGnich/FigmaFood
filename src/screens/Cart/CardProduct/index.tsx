@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import {
 	Image,
 	ImageSourcePropType,
@@ -8,6 +8,7 @@ import {
 } from 'react-native';
 
 import { withTheme } from 'react-native-paper';
+
 import Animated, {
 	useAnimatedStyle,
 	useSharedValue,
@@ -54,7 +55,7 @@ const CardProduct: React.FC<IProps> = ({
 
 	const offsetActions = useSharedValue(0);
 
-	offsetActions.value = withTiming(showActions ? 145 : -30, {
+	offsetActions.value = withTiming(showActions ? 145 : -25, {
 		duration: 550,
 	});
 
@@ -80,10 +81,10 @@ const CardProduct: React.FC<IProps> = ({
 							${price}
 						</Text>
 					</View>
-					<View style={styles.containerActions}>
+					<View style={styles.container}>
 						<TouchableOpacity
 							style={[
-								styles.touchableActions,
+								styles.touchable,
 								{ backgroundColor: colors.gradient.init },
 							]}>
 							<IconMC name="minus" size={12} color="#fff" />
@@ -93,7 +94,7 @@ const CardProduct: React.FC<IProps> = ({
 						</TouchableOpacity>
 						<TouchableOpacity
 							style={[
-								styles.touchableActions,
+								styles.touchable,
 								{ backgroundColor: colors.gradient.init },
 							]}>
 							<IconMC name="plus" size={12} color="#fff" />
@@ -102,46 +103,14 @@ const CardProduct: React.FC<IProps> = ({
 				</TouchableOpacity>
 			</Animated.View>
 
-			<Animated.View
-				style={[
-					{
-						position: 'absolute',
-						flexDirection: 'row',
-						top: 30,
-						right: 50,
-						zIndex: -1,
-					},
-					actionsStyle,
-				]}>
-				<View
-					style={{
-						width: 40,
-						height: 40,
-						borderRadius: 15,
-						alignItems: 'center',
-						justifyContent: 'center',
-						backgroundColor: '#DAFAE5',
-						marginRight: 10,
-					}}>
-					<Image
-						source={editIcon}
-						style={{ width: 25, height: 25, resizeMode: 'contain' }}
-					/>
-				</View>
-				<View
-					style={{
-						width: 40,
-						height: 40,
-						borderRadius: 15,
-						alignItems: 'center',
-						justifyContent: 'center',
-						backgroundColor: '#FBE7E7',
-					}}>
-					<Image
-						source={deleteIcon}
-						style={{ width: 25, height: 25, resizeMode: 'contain' }}
-					/>
-				</View>
+			<Animated.View style={[styles.actionsContainer, actionsStyle]}>
+				<TouchableOpacity style={styles.actionButton}>
+					<Image source={editIcon} style={styles.buttonImage} />
+				</TouchableOpacity>
+				<TouchableOpacity
+					style={[styles.actionButton, { backgroundColor: '#FBE7E7' }]}>
+					<Image source={deleteIcon} style={styles.buttonImage} />
+				</TouchableOpacity>
 			</Animated.View>
 		</View>
 	);
