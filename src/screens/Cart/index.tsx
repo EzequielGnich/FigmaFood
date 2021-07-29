@@ -62,7 +62,7 @@ const Cart: React.FC<IProps> = props => {
 									fontWeight: '700',
 									fontFamily: 'DMSans-Medium',
 								}}>
-								Create an account
+								Process to payment
 							</Text>
 						</LinearGradient>
 					</TouchableOpacity>
