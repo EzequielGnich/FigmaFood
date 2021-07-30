@@ -21,6 +21,8 @@ import ProductDetails from './Product/Details';
 
 import CartDetails from './Cart';
 
+import OrderDetails from './Order/Details';
+
 import Menu from '../components/Menu';
 
 const Stack = createStackNavigator();
@@ -62,6 +64,14 @@ const CartScreens = () => {
 	);
 };
 
+const OrderScreens = () => {
+	return (
+		<Stack.Navigator headerMode="none">
+			<Stack.Screen name="OrderDetails" component={OrderDetails} />
+		</Stack.Navigator>
+	);
+};
+
 const App = () => {
 	return (
 		<Tab.Navigator
@@ -79,6 +89,7 @@ const App = () => {
 			<Tab.Screen name="Account" component={AccountScreens} />
 			<Tab.Screen name="Product" component={ProductScreens} />
 			<Tab.Screen name="Cart" component={CartScreens} />
+			<Tab.Screen name="Order" component={OrderScreens} />
 		</Tab.Navigator>
 	);
 };

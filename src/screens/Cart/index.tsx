@@ -1,12 +1,12 @@
 import React from 'react';
 import {
 	Dimensions,
-	FlatList,
 	Text,
 	TouchableOpacity,
 	View,
 	ScrollView,
 } from 'react-native';
+import { useNavigation } from '@react-navigation/core';
 import LinearGradient from 'react-native-linear-gradient';
 import { withTheme } from 'react-native-paper';
 import Header from '../../components/Header';
@@ -19,7 +19,10 @@ import styles from './styles';
 interface IProps extends IThemeStyle {}
 
 const Cart: React.FC<IProps> = props => {
+	const navigation = useNavigation();
+
 	const { colors } = props.theme;
+
 	return (
 		<View style={{ flex: 1, backgroundColor: colors.background }}>
 			<Header />
@@ -43,7 +46,11 @@ const Cart: React.FC<IProps> = props => {
 						<Text>Total</Text>
 						<Text style={{ fontSize: 24, fontWeight: '700' }}>$345</Text>
 					</View>
-					<TouchableOpacity style={{ marginTop: 35 }} onPress={() => {}}>
+					<TouchableOpacity
+						style={{ marginTop: 35 }}
+						onPress={() =>
+							navigation.navigate('Order', { screen: 'OrderDetails' })
+						}>
 						<LinearGradient
 							angle={-45}
 							useAngle

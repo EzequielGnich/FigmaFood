@@ -151,3 +151,30 @@ export const products = [
 		price: '$23.99',
 	},
 ];
+
+export const orderData = [
+	{
+		id: 1,
+		imageUrl: burguer,
+		name: 'The Macdonalds',
+		category: 'Classic cheesburger',
+		price: '$23.99',
+		status: true,
+	},
+	{
+		id: 2,
+		imageUrl: burguer,
+		name: 'The Macdonalds',
+		category: 'Classic cheesburger',
+		price: '$23.99',
+		status: true,
+	},
+	{
+		id: 3,
+		imageUrl: burguer,
+		name: 'The Macdonalds',
+		category: 'Classic cheesburger',
+		price: '$23.99',
+		status: true,
+	},
+];
